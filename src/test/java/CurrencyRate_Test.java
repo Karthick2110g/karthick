@@ -1,4 +1,5 @@
 
+import com.codeborne.selenide.Configuration;
 import com.codoid.products.exception.FilloException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -14,7 +15,10 @@ public class CurrencyRate_Test {
     @Test
     public void add() throws FilloException, IOException {
 
-        System.out.println(System.getProperty("user.dir")+"\\build\\downloads\\chromedriver.exe");
+        //System.out.println(System.getProperty("user.dir")+"\\build\\downloads\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\build\\downloads\\chromedriver.exe");
+        Configuration.browser = "chrome";
+        Configuration.timeout = 5000;
 
         //Open the URL
         open("https://luminor.ee/currency-rates");
